@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MealMate - Food Ordering Website</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff8f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ff7f50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff7f50;
+    }
+
+    .category {
+      margin-top: 20px;
+      background: #fff4ed;
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .category h3 {
+      color: #ff5722;
+      margin-bottom: 10px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 8px 0;
+      font-size: 17px;
+    }
+
+    button {
+      background-color: #ff7f50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+      display: block;
+      margin: 20px auto;
+    }
+
+    button:hover {
+      background-color: #ff5722;
+    }
+
+    #total {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #ff7f50;
+      color: white;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header> MealMate – Fast Food Order Website </header>
+
+  <div class="container">
+    <h2>Choose Your Meal</h2>
+
+    <!-- Burger Section -->
+    <div class="category">
+      <h3> Burgers</h3>
+      <div class="menu-item">
+        <label><input type="checkbox" value="80" class="item"> Classic Veg Burger</label>
+        <span>₹80</span>
+      </div>
+      <div class="menu-item">
+        <label><input type="checkbox" value="100" class="item"> Cheese Burger</label>
+        <span>₹100</span>
+      </div>
+      <div class="menu-item">
+        <label><input type="checkbox" value="120" class="item"> Chicken Burger</label>
+        <span>₹120</span>
+      </div>
+      <div class="menu-item">
+        <label><input type="checkbox" value="140" class="item"> Double Patty Burger</label>
+        <span>₹140</span>
+      </div>
+    </div>
+
+    <!-- Pizza Section -->
+    <div class="category">
+      <h3> Pizzas</h3>
+      <div class="menu-item">
+        <label><input type="checkbox" value="120" class="item"> Margherita Pizza</label>
+        <span>₹120</span>
+      </div>
+      <div class="menu-item">
+        <label><input type="checkbox" value="150" class="item"> Cheese Burst Pizza</label>
+        <span>₹150</span>
+      </div>
+      <div class="menu-item">
+        <label><input type="checkbox" value="180" class="item"> Chicken Tikka Pizza</label>
+        <span>₹180</span>
+      </div>
+    </div>
+
+    <!-- Sides Section -->
+    <div class="category">
+      <h3> Sides</h3>
+      <div class="menu-item">
+        <label><input type="checkbox" value="60" class="item"> French Fries</label>
+        <span>₹60</span>
+      </div>
+      <div class="menu-item">
+        <label><input type="checkbox" value="90" class="item"> Cheese Fries</label>
+        <span>₹90</span>
+      </div>
+      <div class="menu-item">
+        <label><input type="checkbox" value="70" class="item"> Garlic Bread</label>
+        <span>₹70</span>
+      </div>
+    </div>
+
+    <!-- Beverages Section -->
+    <div class="category">
+      <h3> Beverages & Desserts</h3>
+      <div class="menu-item">
+        <label><input type="checkbox" value="40" class="item"> Cold Drink</label>
+        <span>₹40</span>
+      </div>
+      <div class="menu-item">
+        <label><input type="checkbox" value="60" class="item"> Milkshake</label>
+        <span>₹60</span>
+      </div>
+      <div class="menu-item">
+        <label><input type="checkbox" value="50" class="item"> Ice Cream</label>
+        <span>₹50</span>
+      </div>
+    </div>
+
+    <button onclick="calculateTotal()">Place Order</button>
+    <button onclick="resetOrder()">Reset Order</button>
+
+    <div id="total"></div>
+  </div>
+
+  <footer>© 2025 MealMate | VEDANT SHAH | Developed using HTML, CSS, and JavaScript</footer>
+
+  <script>
+    function calculateTotal() {
+      let items = document.querySelectorAll('.item');
+      let total = 0;
+      let selectedItems = [];
+
+      items.forEach(item => {
+        if (item.checked) {
+          total += parseInt(item.value);
+          selectedItems.push(item.parentElement.innerText);
+        }
+      });
+
+      if (selectedItems.length === 0) {
+        document.getElementById('total').innerHTML = " Please select at least one item!";
+      } else {
+        document.getElementById('total').innerHTML =
+          `<strong>Your Order:</strong> ${selectedItems.join(', ')} <br>
+           <strong>Total Bill: ₹${total}</strong>`;
+      }
+    }
+
+    function resetOrder() {
+      document.querySelectorAll('.item').forEach(item => item.checked = false);
+      document.getElementById('total').innerHTML = "";
+    }
+  </script>
+
+</body>
+</html>
