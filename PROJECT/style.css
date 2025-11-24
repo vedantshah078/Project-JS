@@ -1,0 +1,122 @@
+/* Page Base */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(120deg, #ffbb89, #ffe8d6);
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
+}
+
+/* Header */
+header {
+  background: #ff5722;
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Main Box */
+.container {
+  max-width: 750px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  padding: 35px;
+  animation: fade-in 1s ease-in;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #ff5722;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* Category Section */
+.category {
+  margin-top: 25px;
+  background: #fff4e9;
+  border-radius: 12px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.category:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Category Title */
+.category h3 {
+  color: #ff4500;
+  margin-bottom: 12px;
+  font-size: 22px;
+  border-left: 5px solid #ff5722;
+  padding-left: 8px;
+}
+
+/* Menu Items */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #ccc;
+  padding: 10px 0;
+  font-size: 18px;
+}
+
+/* Buttons */
+button {
+  background: #ff4500;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+}
+
+button:hover {
+  background: #ff2d00;
+  transform: scale(1.08);
+}
+
+/* Selected Order Display */
+#total {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 20px;
+  color: #222;
+  font-weight: bold;
+  background: #fff2e6;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #ff5722;
+  color: white;
+  padding: 12px;
+  margin-top: 40px;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+/* Fade Animation */
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
